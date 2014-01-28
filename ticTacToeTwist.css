@@ -1,0 +1,33 @@
+body {
+    background-color: #eeeeee;
+    font-family: "courier", Helvetica, Arial, sans-serif;
+}
+
+.centered {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.block {
+    float: left;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    border: solid black 2px;
+    margin: 1px;
+}
+
+.filled {
+    cursor: default;
+}
+
+.highlight {
+    background-color: #add8e6;
+}
+
+.float-clear {
+    clear: both;
+}
