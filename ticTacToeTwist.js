@@ -1,51 +1,10 @@
-function ImageLoader(){
-	return new function() {
-	
-		var self = this;
-	
-		var debug = true;
-		function dLog(text){ if(debug === true && window.console) console.log(text); }
-
-		var verboseLog = true;
-		function vLog(text){ if(verboseLog === true && window.console) console.log(text); }
-
-		var loadedImages = {};
-
-		self.loadImage = function(imageSrc) {
-			if (loadedImages.hasOwnProperty(imageSrc) === true)
-				return;
-			imageSrc = decodeURIComponent(imageSrc);
-			vLog("caching: " + imageSrc);
-
-			var image = new Image(); // local scope, new object created per instance.
-			image.onload = function(data) {
-				if(!image) return;
-				loadedImages[image.src] = image;
-				image = image.onload = image.onabort = image.onerror = null;  // remove event and self to prevent IE on animated gif loops and clear up garbage.
-			};
-			image.onerror = function(data) {
-				vLog("image.onerror: " + image.src + "\nneed error page to display");
-			}
-			image.src = imageSrc;
-		}
-
-		self.displayImage = function(elm, imageKey)
-		{
-			var url = loadedImages[imageKey].src;
-			elm.html('<img src="' + url + '" />');
-		}
-	};
-}
 
 var ticTacToe = function () {
 
-	var imageLoader = ImageLoader();
     var blockPictures = [
         'block_x.png',
         'block_o.png'
     ];
-	blockPictures.forEach(imageLoader.loadImage);
-
     var playerId = 0;
     var grid = [];
     var blockHistory = [
@@ -179,6 +138,11 @@ var ticTacToe = function () {
         }
     };
 
+    var displayImage = function(elm, pid) {
+        var url = blockPictures[pid];
+        elm.html('<img src="' + url + '" />');
+    }
+
     var markBlock = function(blockId, pid) {
         var block = $('#block-'+blockId);
         if(pid === emptyBlockPid){
@@ -186,7 +150,7 @@ var ticTacToe = function () {
             block.removeClass('filled');
         }
         else{
-        	imageLoader.displayImage(block, blockPictures[pid]);
+            displayImage(block, pid);
             block.addClass('filled');
         }
     };

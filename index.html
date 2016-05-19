@@ -10,6 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="ticTacToeTwist.js"></script>
         <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
         
         <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -22,14 +23,15 @@
 		</script>
     </head>
 
-    <body>
+<body>
+    <div class="container text-center">
         <h1 >
-            holy shit its tic tac toe!
+            what the heck its tic tac toe!
         </h1>
 
-        <h3>(but with a twist say whaaaaaaaat)</h3>
-
-        <h4>you can only have three places marked at a time! introduces crazy new metagame!!?</h4>
+        <h4>(but with a twist say whaaaaaaaat)</h4>
+        <h4>you can only have three places marked at a time! </h4>
+        <h4> introduces crazy new metagame!!?</h4>
 
         <div id="turn-0">
             Player X
@@ -49,34 +51,36 @@
 
         <br/>
 
-        <div>
+        <div class="holder center-block">
             <div id="block-0" data-id="0" class="block"></div>
             <div id="block-1" data-id="1" class="block"></div>
             <div id="block-2" data-id="2" class="block"></div>
+            <div class="float-clear"></div>
         </div>
-        <div class="float-clear">
+        <div class="holder center-block">
             <div id="block-3" data-id="3" class="block"></div>
             <div id="block-4" data-id="4" class="block"></div>
             <div id="block-5" data-id="5" class="block"></div>
+            <div class="float-clear"></div>
         </div>
-        <div class="float-clear">
+        <div class="holder center-block">
             <div id="block-6" data-id="6" class="block"></div>
             <div id="block-7" data-id="7" class="block"></div>
             <div id="block-8" data-id="8" class="block"></div>
+            <div class="float-clear"></div>
         </div>
 
-        <div class="float-clear"></div>
 
         <br/>
 
         <button id="reset">
             Reset
         </button>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                ticTacToe();
-            });
-        </script>
-    </body>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ticTacToe();
+        });
+    </script>
+</body>
 </html>
