@@ -41,8 +41,8 @@ var ticTacToe = function () {
 
 	var imageLoader = ImageLoader();
     var blockPictures = [
-        '/block_x.png',
-        '/block_o.png'
+        'block_x.png',
+        'block_o.png'
     ];
 	blockPictures.forEach(imageLoader.loadImage);
 
